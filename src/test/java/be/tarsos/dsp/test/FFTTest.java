@@ -24,24 +24,21 @@
 
 package be.tarsos.dsp.test;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.ByteArrayInputStream;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
-import org.junit.Test;
-
 import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
 import be.tarsos.dsp.AudioProcessor;
 import be.tarsos.dsp.io.TarsosDSPAudioFloatConverter;
 import be.tarsos.dsp.io.TarsosDSPAudioFormat;
-import be.tarsos.dsp.io.jvm.AudioPlayer;
 import be.tarsos.dsp.io.jvm.JVMAudioInputStream;
 import be.tarsos.dsp.util.fft.FFT;
+import org.junit.Test;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.ByteArrayInputStream;
+
+import static org.junit.Assert.assertEquals;
 
 public class FFTTest {
 	/**
@@ -92,7 +89,7 @@ public class FFTTest {
 			}
 		});
 
-        dispatcher.addAudioProcessor(new AudioPlayer(JVMAudioInputStream.toAudioFormat(format)));
+        //dispatcher.addAudioProcessor(new AudioPlayer(JVMAudioInputStream.toAudioFormat(format)));
         dispatcher.run();
 	}
 }
