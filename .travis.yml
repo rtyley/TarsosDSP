@@ -4,6 +4,9 @@ scala:
 jdk:
   - openjdk11
 
+before_install:
+  - sudo apt-get install -y ffmpeg
+
 cache:
   directories:
   - $HOME/.sbt
