@@ -1,0 +1,12 @@
+language: scala
+
+jdk:
+  - openjdk11
+
+cache:
+  directories:
+  - $HOME/.sbt
+  - $HOME/.ivy2
+before_cache:
+  - find $HOME/.sbt -name "*.lock" -type f -delete
+  - find $HOME/.ivy2/cache -name "*[\[\]\(\)]*.properties" -type f -delete
