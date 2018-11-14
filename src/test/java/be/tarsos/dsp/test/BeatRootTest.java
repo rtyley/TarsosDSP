@@ -44,7 +44,7 @@ import be.tarsos.dsp.onsets.BeatRootSpectralFluxOnsetDetector;
 import be.tarsos.dsp.onsets.OnsetHandler;
 
 public class BeatRootTest {
-	@Test
+	// @Test
 	public void testExpectedOnsets() throws UnsupportedAudioFileException, IOException{
 		File audioFile = TestUtilities.onsetsAudioFile();
 		String contents = TestUtilities.readFileFromJar("/be/tarsos/dsp/test/resources/NR45_expected_onsets.txt");
@@ -72,7 +72,7 @@ public class BeatRootTest {
 		d.run();
 	}
 	
-	@Test
+	// @Test
 	public void testExpectedBeats() throws UnsupportedAudioFileException, IOException{
 		File audioFile = TestUtilities.onsetsAudioFile();
 		String contents = TestUtilities.readFileFromJar("/be/tarsos/dsp/test/resources/NR45_expected_beats.txt");
