@@ -68,10 +68,10 @@ public class PitchProcessor implements AudioProcessor {
 		 * Time-Domain Pitch Tracking Using Wavelets</a>
 		 */
 		DYNAMIC_WAVELET,
-		/**
-		 * Returns the frequency of the FFT-bin with most energy.
-		 */
-		FFT_PITCH,
+//		/**
+//		 * Returns the frequency of the FFT-bin with most energy.
+//		 */
+//		FFT_PITCH,
 		/**
 		 * A pitch extractor that extracts the Average Magnitude Difference
 		 * (AMDF) from an audio buffer. This is a good measure of the Pitch (f0)
@@ -95,8 +95,8 @@ public class PitchProcessor implements AudioProcessor {
 				detector = new FastYin(sampleRate, bufferSize);
 			} else if(this==AMDF){
 				detector = new AMDF(sampleRate, bufferSize);
-			} else if (this == FFT_PITCH){
-				detector = new FFTPitch(Math.round(sampleRate),bufferSize);
+//			} else if (this == FFT_PITCH){
+//				detector = new FFTPitch(Math.round(sampleRate),bufferSize);
 			} else {
 				detector = new Yin(sampleRate, bufferSize);
 			}
