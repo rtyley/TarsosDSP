@@ -6,8 +6,12 @@ jdk:
   - openjdk11
 
 before_install:
-  - lsb_release -a
   - sudo apt-get install -y ffmpeg
+
+before_script:
+  - cat $JAVA_HOME/conf/sound.properties
+  - echo -e "javax.sound.sampled.Clip=com.sun.media.sound.DirectAudioDeviceProvider\njavax.sound.sampled.Port=com.sun.media.sound.PortMixerProvider\njavax.sound.sampled.SourceDataLine=com.sun.media.sound.DirectAudioDeviceProvider\njavax.sound.sampled.TargetDataLine=com.sun.media.sound.DirectAudioDeviceProvider" >> $JAVA_HOME/conf/sound.properties
+  - cat $JAVA_HOME/conf/sound.properties
 
 cache:
   directories:
