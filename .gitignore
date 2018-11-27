@@ -47,6 +47,7 @@ prepender.rb
 *_prefix.txt
 build/TarsosDSP-*
 decoder_log*
+filtered.wav
 
 ###########
 # Maven
