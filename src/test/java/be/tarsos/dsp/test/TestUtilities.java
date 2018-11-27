@@ -227,6 +227,7 @@ public class TestUtilities {
 		float[] buffer = new float[lengthInSamples];
 		try {
 			final URL url = TestUtilities.class.getResource(file);
+			System.out.println(file+" gives "+url);
 			AudioInputStream audioStream = AudioSystem.getAudioInputStream(url);
 			AudioFormat format = audioStream.getFormat();
 			TarsosDSPAudioFloatConverter converter = TarsosDSPAudioFloatConverter.getConverter(JVMAudioInputStream.toTarsosDSPFormat(format));
