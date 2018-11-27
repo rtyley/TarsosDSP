@@ -1,23 +1,10 @@
-dist: xenial
-language: scala
-scala:
-   - 2.12.7
-jdk:
-  - openjdk11
+sudo: required
+
+services:
+  - docker
 
 before_install:
-  - sudo apt-get install -y ffmpeg
+- docker pull rtyley/ubuntu-sbt
+- docker run --group-add audio --device /dev/snd rtyley/ubuntu-sbt sbt test
+- docker ps -a
 
-before_script:
-  - ls -lR $JAVA_HOME | grep sound
-  - cat $JAVA_HOME/conf/sound.properties
-  - echo -e "javax.sound.sampled.Clip=com.sun.media.sound.DirectAudioDeviceProvider\njavax.sound.sampled.Port=com.sun.media.sound.PortMixerProvider\njavax.sound.sampled.SourceDataLine=com.sun.media.sound.DirectAudioDeviceProvider\njavax.sound.sampled.TargetDataLine=com.sun.media.sound.DirectAudioDeviceProvider" >> $JAVA_HOME/conf/sound.properties
-  - cat $JAVA_HOME/conf/sound.properties
-
-cache:
-  directories:
-  - $HOME/.sbt
-  - $HOME/.ivy2
-before_cache:
-  - find $HOME/.sbt -name "*.lock" -type f -delete
-  - find $HOME/.ivy2/cache -name "*[\[\]\(\)]*.properties" -type f -delete
